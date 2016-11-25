@@ -16,10 +16,29 @@
   :version "0.1"
   :author "peccu"
   :license "MIT"
-  :depends-on ()
+  :depends-on (:clack
+               :lack
+               :caveman2
+               :envy
+               :cl-ppcre
+               :uiop
+
+               ;; for @route annotation
+               :cl-syntax-annot
+
+               ;; HTML Template
+               :djula
+
+               ;; for DB
+               :datafly
+               :sxql)
   :components ((:module "src"
                 :components
-                ((:file "caveman-jscl"))))
+                ((:file "main" :depends-on ("config" "view" "db"))
+                 (:file "web" :depends-on ("view"))
+                 (:file "view" :depends-on ("config"))
+                 (:file "db" :depends-on ("config"))
+                 (:file "config"))))
   :description ""
   :long-description
   #.(with-open-file (stream (merge-pathnames
