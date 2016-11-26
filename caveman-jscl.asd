@@ -31,7 +31,10 @@
 
                ;; for DB
                :datafly
-               :sxql)
+               :sxql
+
+               ;; for jscl
+               :jscl)
   :components ((:module "src"
                 :components
                 ((:file "main" :depends-on ("config" "view" "db"))
