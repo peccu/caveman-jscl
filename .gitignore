@@ -7,3 +7,5 @@
 *~
 .#
 *quicklisp/
+static/lisp/*.js
+static/lisp/*/*.js
