@@ -1,0 +1,11 @@
+("quicklisp" .
+ (:class qlot.source.ql:source-ql-all
+  :initargs (:project-name "quicklisp" :%version :latest)
+  :version "2016-10-31"))
+("jscl" .
+ (:class qlot.source.github:source-github
+  :initargs (:project-name "jscl" :repos "peccu/jscl" :ref nil :branch nil :tag nil)
+  :version "github-0d49878d76beedea8b3b6dd09b423350b2fde087"
+  :repos "peccu/jscl"
+  :url "https://github.com/peccu/jscl/archive/0d49878d76beedea8b3b6dd09b423350b2fde087.tar.gz"
+  :ref "0d49878d76beedea8b3b6dd09b423350b2fde087"))
