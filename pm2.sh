@@ -1,2 +1,2 @@
 #!/bin/bash
-clackup app.lisp
+qlot exec clackup app.lisp
