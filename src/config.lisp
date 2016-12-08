@@ -8,6 +8,7 @@
            :*application-root*
            :*static-directory*
            :*template-directory*
+           :*base-url*
            :appenv
            :developmentp
            :productionp))
@@ -18,6 +19,7 @@
 (defparameter *application-root*   (asdf:system-source-directory :caveman-jscl))
 (defparameter *static-directory*   (merge-pathnames #P"static/" *application-root*))
 (defparameter *template-directory* (merge-pathnames #P"templates/" *application-root*))
+(defparameter *base-url* "")
 
 (defconfig :common
   `(:databases ((:maindb :sqlite3 :database-name ":memory:"))))

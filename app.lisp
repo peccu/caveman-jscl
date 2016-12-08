@@ -12,15 +12,17 @@
   (:import-from :caveman-jscl.config
                 :config
                 :productionp
-                :*static-directory*))
+                :*static-directory*
+                :*base-url*))
 (in-package :caveman-jscl.app)
 
 (builder
  (:static
   :path (lambda (path)
-          (if (ppcre:scan "^(?:/images/|/css/|/js/|/robot\\.txt$|/favicon\\.ico$)" path)
-              path
-              nil))
+          (let ((basepath (regex-replace (format nil "^~a" *base-url*) path "")))
+            (if (ppcre:scan "^(?:/images/|/css/|/js/|/robot\\.txt$|/favicon\\.ico$)" basepath)
+                basepath
+                nil)))
   :root *static-directory*)
  (if (productionp)
      nil
@@ -36,4 +38,5 @@
        (lambda (env)
          (let ((datafly:*trace-sql* t))
            (funcall app env)))))
+ (:mount *base-url* *web*)
  *web*)
